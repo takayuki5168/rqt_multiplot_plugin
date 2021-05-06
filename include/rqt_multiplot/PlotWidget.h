@@ -63,6 +63,7 @@ namespace rqt_multiplot {
     PlotCursor* getCursor() const;
     BoundingRectangle getPreferredScale() const;
     void setCurrentScale(const BoundingRectangle& bounds);
+    void setCurrentScaleOnlyX(const BoundingRectangle& bounds);
     const BoundingRectangle& getCurrentScale() const;
     bool isPaused() const;
     bool isReplotRequested() const;

@@ -297,7 +297,7 @@ void PlotTableWidget::updatePlotScale(const BoundingRectangle& bounds,
   for (size_t row = 0; row < plotWidgets_.count(); ++row) {
     for (size_t column = 0; column < plotWidgets_[row].count(); ++column) {
       if (excluded != plotWidgets_[row][column])
-        plotWidgets_[row][column]->setCurrentScale(validBounds);
+        plotWidgets_[row][column]->setCurrentScaleOnlyX(validBounds);
     }
   }
 }
@@ -403,6 +403,7 @@ void PlotTableWidget::configNumPlotsChanged(size_t numRows, size_t
 }
 
 void PlotTableWidget::configLinkScaleChanged(bool link) {
+  /*
   if (link) {
     BoundingRectangle bounds;
     
@@ -412,6 +413,7 @@ void PlotTableWidget::configLinkScaleChanged(bool link) {
         
     updatePlotScale(bounds);
   }
+  */
 }
 
 void PlotTableWidget::configTrackPointsChanged(bool track) {

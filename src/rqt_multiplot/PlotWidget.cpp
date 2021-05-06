@@ -296,6 +296,21 @@ void PlotWidget::setCurrentScale(const BoundingRectangle& bounds) {
   }
 }
 
+void PlotWidget::setCurrentScaleOnlyX(const BoundingRectangle& bounds) {
+  if (bounds != currentBounds_) {
+    if (bounds.getMaximum().x() == bounds.getMinimum().x())
+      ui_->plot->setAxisScale(QwtPlot::xBottom, bounds.getMinimum().x() - 0.1,
+                              bounds.getMaximum().x() + 0.1);
+    else if (bounds.getMaximum().x() > bounds.getMinimum().x())
+      ui_->plot->setAxisScale(QwtPlot::xBottom, bounds.getMinimum().x(),
+        bounds.getMaximum().x());
+
+    rescale_ = false;
+
+    forceReplot();
+  }
+}
+
 const BoundingRectangle& PlotWidget::getCurrentScale() const {
   return currentBounds_;
 }
